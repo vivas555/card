@@ -2,6 +2,7 @@ package com.frivard.card.businessLogic;
 
 public class Game {
     private GameId id;
+    private GameTable table;
 
     public Game(GameId id) {
         this.id = id;
@@ -26,6 +27,6 @@ public class Game {
     }
 
     public void addPlayer(Player player) {
-
+        table.addPlayer(player);
     }
 }
