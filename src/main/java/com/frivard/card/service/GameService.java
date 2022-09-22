@@ -31,8 +31,8 @@ public class GameService {
         new AddDeck(gamePersistence).addDeckToGame(gameId);
     }
 
-    public void addPlayer(GameId gameId, PlayerName playerName) {
-        new AddPlayer(gamePersistence, playerPersistence).addToGame(gameId, playerName);
+    public PlayerId addPlayer(GameId gameId, PlayerName playerName) {
+        return new AddPlayer(gamePersistence, playerPersistence).addToGame(gameId, playerName);
     }
 
     public void removePlayer(GameId gameId, PlayerId playerId) {

@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface PlayerPersistence {
     PlayerId createPlayer(PlayerName playerName);
 
+    //TODO find clean way to guarantee record always exists
     Optional<Player> getPlayerById(PlayerId playerId);
 }

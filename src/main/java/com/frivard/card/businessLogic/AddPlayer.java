@@ -14,18 +14,22 @@ public class AddPlayer {
         this.playerPersistence = playerPersistence;
     }
 
-    public void addToGame(GameId gameId, PlayerName playerName) {
+    public PlayerId addToGame(GameId gameId, PlayerName playerName) {
         Player player = createPlayer(playerName);
 
         Game game = addPlayerToGame(gameId, player);
+
         if (game == null)
-            return;
+            return player.getId();
 
         saveGame(game);
+
+        return player.getId();
     }
 
     private Player createPlayer(PlayerName playerName) {
         PlayerId playerId = playerPersistence.createPlayer(playerName);
+        
         return playerPersistence.getPlayerById(playerId).get();
     }
 

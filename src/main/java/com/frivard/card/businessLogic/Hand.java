@@ -9,4 +9,8 @@ public class Hand {
     public Hand() {
         cards = new LinkedList<>();
     }
+
+    public void addCard(Card card) {
+        cards.add(card);
+    }
 }

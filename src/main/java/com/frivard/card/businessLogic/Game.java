@@ -1,5 +1,7 @@
 package com.frivard.card.businessLogic;
 
+import java.util.Optional;
+
 public class Game {
     private GameId id;
     private GameTable table;
@@ -34,5 +36,14 @@ public class Game {
 
     public void removePlayer(PlayerId playerId) {
         table.removePlayer(playerId);
+    }
+
+    public void dealCardToPlayer(PlayerId playerId) {
+        Optional<Card> card = shoe.draw();
+
+        if (!card.isPresent())
+            return;
+
+        table.addCardToPlayerHand(playerId, card.get());
     }
 }

@@ -36,8 +36,10 @@ public class GameController {
     }
 
     @PutMapping("/{game-id}/add-player/{player-name}")
-    public void addPlayer(@PathVariable("game-id") String id, @PathVariable("player-name") String playerName) {
-        gameService.addPlayer(new GameId(id), new PlayerName(playerName));
+    public String addPlayer(@PathVariable("game-id") String id, @PathVariable("player-name") String playerName) {
+        PlayerId playerId = gameService.addPlayer(new GameId(id), new PlayerName(playerName));
+        
+        return playerId.getValue();
     }
 
     @PutMapping("/{game-id}/players/{player-id}/remove")
@@ -47,6 +49,11 @@ public class GameController {
 
     @PutMapping("/{game-id}/players/{player-id}/deal")
     public void deal(@PathVariable("game-id") String id, @PathVariable("player-id") String playerId) {
+        gameService.deal(new GameId(id), new PlayerId(playerId));
+    }
+
+    @GetMapping("/{game-id}/players/{player-id}/list-cards")
+    public void listCards(@PathVariable("game-id") String id, @PathVariable("player-id") String playerId) {
         gameService.deal(new GameId(id), new PlayerId(playerId));
     }
 

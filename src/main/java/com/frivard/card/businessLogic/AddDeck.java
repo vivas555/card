@@ -16,17 +16,13 @@ public class AddDeck {
 
         if (game == null) return;
 
-        addDeck(game);
+        game.addDeck();
 
         saveGame(game);
     }
 
     private void saveGame(Game game) {
         gamePersistence.updateGame(game);
-    }
-
-    private static void addDeck(Game game) {
-        game.addDeck();
     }
 
     private Game getGame(GameId gameId) {

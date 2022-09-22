@@ -18,4 +18,9 @@ public class GameTable {
     public void removePlayer(PlayerId playerId) {
         players.remove(playerId);
     }
+
+    public void addCardToPlayerHand(PlayerId playerId, Card card) {
+        players.get(playerId).addCard(card);
+
+    }
 }

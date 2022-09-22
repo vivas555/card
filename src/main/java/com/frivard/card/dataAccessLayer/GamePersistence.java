@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface GamePersistence {
     GameId createGame();
 
+    //TODO find clean way to guarantee record always exists
     Optional<Game> getGameById(GameId id);
 
     void deleteGameById(GameId gameId);
