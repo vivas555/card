@@ -14,5 +14,8 @@ public class GameTable {
     public void addPlayer(Player player) {
         players.put(player.getId(), player);
     }
-    
+
+    public void removePlayer(PlayerId playerId) {
+        players.remove(playerId);
+    }
 }

@@ -1,6 +1,7 @@
 package com.frivard.card.api;
 
 import com.frivard.card.businessLogic.GameId;
+import com.frivard.card.businessLogic.PlayerId;
 import com.frivard.card.businessLogic.PlayerName;
 import com.frivard.card.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +40,9 @@ public class GameController {
         gameService.addPlayer(new GameId(id), new PlayerName(playerName));
     }
 
-   /* @PutMapping("/{game-id}/player/{player-id}/remove")
-    public void removePlayer(@PathVariable("game-id") String id) {
-        gameService.addDeck(new GameId(id));
-    }*/
+    @PutMapping("/{game-id}/player/{player-id}/remove")
+    public void removePlayer(@PathVariable("game-id") String id, @PathVariable("player-id") String playerId) {
+        gameService.removePlayer(new GameId(id), new PlayerId(playerId));
+    }
 
 }

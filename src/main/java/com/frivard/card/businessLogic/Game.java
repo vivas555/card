@@ -31,4 +31,8 @@ public class Game {
     public void addPlayer(Player player) {
         table.addPlayer(player);
     }
+
+    public void removePlayer(PlayerId playerId) {
+        table.removePlayer(playerId);
+    }
 }

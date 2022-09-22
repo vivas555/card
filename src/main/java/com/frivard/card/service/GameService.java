@@ -34,4 +34,8 @@ public class GameService {
     public void addPlayer(GameId gameId, PlayerName playerName) {
         new AddPlayer(gamePersistence, playerPersistence).add(gameId, playerName);
     }
+
+    public void removePlayer(GameId gameId, PlayerId playerId) {
+        new RemovePlayer(gamePersistence).remove(gameId, playerId);
+    }
 }
