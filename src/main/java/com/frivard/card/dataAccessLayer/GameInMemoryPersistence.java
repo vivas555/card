@@ -4,24 +4,29 @@ import com.frivard.card.businessLogic.Game;
 import com.frivard.card.businessLogic.GameId;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Repository
 public class GameInMemoryPersistence implements GamePersistence {
 
-    private static List<Game> games;
+    private static Map<GameId, Game> games;
 
     public GameInMemoryPersistence() {
-        games = new ArrayList<>();
+        games = new HashMap<>();
     }
 
     @Override
     public GameId createGame() {
         GameId gameId = new GameId(UUID.randomUUID().toString());
-        games.add(new Game(gameId));
+        games.put(gameId, new Game(gameId));
 
         return gameId;
+    }
+
+    @Override
+    public Game getGameById(GameId id) {
+        return games.get(id);
     }
 }
