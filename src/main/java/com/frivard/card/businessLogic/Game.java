@@ -4,6 +4,8 @@ public class Game {
     private GameId id;
     private GameTable table;
 
+    private Shoe shoe;
+
     public Game(GameId id) {
         this.id = id;
         validateInstance();
@@ -19,7 +21,7 @@ public class Game {
     }
 
     public void addDeck() {
-
+        shoe.addDeck();
     }
 
     public GameId getId() {
