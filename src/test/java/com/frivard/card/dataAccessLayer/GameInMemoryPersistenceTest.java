@@ -51,4 +51,32 @@ class GameInMemoryPersistenceTest {
         // Then
         assertFalse(result.isPresent());
     }
+
+    @Test
+    void givenAnyGame_whenDeletingGame_ThenDeleteGame() {
+
+        // Given
+        GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
+        GameId gameId = systemUnderTest.createGame();
+
+        // When
+        systemUnderTest.deleteGameById(gameId);
+
+        // Then
+        Optional<Game> result = systemUnderTest.getGameById(gameId);
+        assertFalse(result.isPresent());
+    }
+
+    @Test
+    void givenNoGame_whenDeletingGame_ThenDoNothing() {
+
+        // Given
+        GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
+        GameId anyGameId = new GameId(UUID.randomUUID().toString());
+
+        // When
+        systemUnderTest.deleteGameById(anyGameId);
+
+        // Then
+    }
 }

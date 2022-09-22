@@ -30,4 +30,9 @@ public class GameInMemoryPersistence implements GamePersistence {
     public Optional<Game> getGameById(GameId id) {
         return Optional.ofNullable(games.get(id));
     }
+
+    @Override
+    public void deleteGameById(GameId gameId) {
+        games.remove(gameId);
+    }
 }

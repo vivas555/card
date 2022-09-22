@@ -9,4 +9,6 @@ public interface GamePersistence {
     GameId createGame();
 
     Optional<Game> getGameById(GameId id);
+
+    void deleteGameById(GameId gameId);
 }
