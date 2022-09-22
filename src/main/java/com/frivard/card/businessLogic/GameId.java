@@ -16,12 +16,12 @@ public class GameId {
 
     private void validateNotNullValue() {
         if (value == null)
-            throw new IllegalArgumentException("Cannot construct " + GameId.class.getName() + "with null value");
+            throw new IllegalArgumentException("Cannot construct " + getClass().getName() + "with null value");
     }
 
     private void validateNotEmptyValue() {
         if (value.isEmpty())
-            throw new IllegalArgumentException("Cannot construct " + GameId.class.getName() + "with empty value");
+            throw new IllegalArgumentException("Cannot construct " + getClass().getName() + "with empty value");
     }
 
     public String getValue() {
