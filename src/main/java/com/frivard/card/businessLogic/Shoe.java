@@ -1,8 +1,20 @@
 package com.frivard.card.businessLogic;
 
-//TODO will wrap all cards not yet in player's hand
-public class Shoe {
-    public void addDeck() {
+import java.util.LinkedList;
+import java.util.List;
 
+public class Shoe {
+    private List<Card> cards;
+
+    public Shoe() {
+        cards = new LinkedList<>();
+    }
+
+    public void addDeck() {
+        for (CardColor color : CardColor.values()) {
+            for (CardStrength strength : CardStrength.values()) {
+                cards.add(new Card(color, strength));
+            }
+        }
     }
 }
