@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -26,7 +27,7 @@ public class GameInMemoryPersistence implements GamePersistence {
     }
 
     @Override
-    public Game getGameById(GameId id) {
-        return games.get(id);
+    public Optional<Game> getGameById(GameId id) {
+        return Optional.ofNullable(games.get(id));
     }
 }

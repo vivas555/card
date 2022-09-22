@@ -1,0 +1,54 @@
+package com.frivard.card.dataAccessLayer;
+
+import com.frivard.card.businessLogic.Game;
+import com.frivard.card.businessLogic.GameId;
+import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
+import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+class GameInMemoryPersistenceTest {
+
+    @Test
+    void givenAnyGame_whenCreatingGame_ThenReturnGameId() {
+
+        // Given
+        GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
+
+        // When
+        GameId result = systemUnderTest.createGame();
+
+        // Then
+        assertNotNull(result);
+    }
+
+    @Test
+    void givenAnyGame_whenCreatingGame_ThenGameIsSaved() {
+
+        // Given
+        GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
+
+        // When
+        GameId result = systemUnderTest.createGame();
+
+        // Then
+        assertNotNull(systemUnderTest.getGameById(result));
+    }
+
+    @Test
+    void givenEmptyPersistence_whenGettingGameById_thenReturnEmptyOptional() {
+
+        // Given
+        GameId anyGameId = new GameId(UUID.randomUUID().toString());
+        GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
+
+        // When
+        Optional<Game> result = systemUnderTest.getGameById(anyGameId);
+
+        // Then
+        assertFalse(result.isPresent());
+    }
+}
