@@ -15,31 +15,29 @@ public class AddPlayer {
     }
 
     public PlayerId addToGame(GameId gameId, PlayerName playerName) {
-        Player player = createPlayer(playerName);
+        PlayerId playerId = createPlayer(playerName);
 
-        Game game = addPlayerToGame(gameId, player);
+        Game game = addPlayerToGame(gameId, playerId);
 
         if (game == null)
-            return player.getId();
+            return playerId;
 
         saveGame(game);
 
-        return player.getId();
+        return playerId;
     }
 
-    private Player createPlayer(PlayerName playerName) {
-        PlayerId playerId = playerPersistence.createPlayer(playerName);
-        
-        return playerPersistence.getPlayerById(playerId).get();
+    private PlayerId createPlayer(PlayerName playerName) {
+        return playerPersistence.createPlayer(playerName);
     }
 
-    private Game addPlayerToGame(GameId gameId, Player player) {
+    private Game addPlayerToGame(GameId gameId, PlayerId playerId) {
         Game game = getGame(gameId);
 
         if (game == null)
             return null;
 
-        game.addPlayer(player);
+        game.addPlayer(playerId);
 
         return game;
     }

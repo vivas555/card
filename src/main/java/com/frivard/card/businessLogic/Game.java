@@ -11,6 +11,8 @@ public class Game {
 
     public Game(GameId id) {
         this.id = id;
+        shoe = new Shoe();
+        table = new GameTable();
         validateInstance();
     }
 
@@ -31,8 +33,8 @@ public class Game {
         return id;
     }
 
-    public void addPlayer(Player player) {
-        table.addPlayer(player);
+    public void addPlayer(PlayerId playerId) {
+        table.addPlayer(playerId);
     }
 
     public void removePlayer(PlayerId playerId) {

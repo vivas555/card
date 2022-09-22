@@ -1,5 +1,6 @@
 package com.frivard.card.businessLogic;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,5 +13,9 @@ public class Hand {
 
     public void addCard(Card card) {
         cards.add(card);
+    }
+
+    public List<Card> getAllCards() {
+        return Collections.unmodifiableList(cards);
     }
 }

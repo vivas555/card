@@ -1,6 +1,7 @@
 package com.frivard.card.api;
 
 import com.frivard.card.businessLogic.GameId;
+import com.frivard.card.businessLogic.Hand;
 import com.frivard.card.businessLogic.PlayerId;
 import com.frivard.card.businessLogic.PlayerName;
 import com.frivard.card.service.GameService;
@@ -38,7 +39,7 @@ public class GameController {
     @PutMapping("/{game-id}/add-player/{player-name}")
     public String addPlayer(@PathVariable("game-id") String id, @PathVariable("player-name") String playerName) {
         PlayerId playerId = gameService.addPlayer(new GameId(id), new PlayerName(playerName));
-        
+
         return playerId.getValue();
     }
 
@@ -53,8 +54,10 @@ public class GameController {
     }
 
     @GetMapping("/{game-id}/players/{player-id}/list-cards")
-    public void listCards(@PathVariable("game-id") String id, @PathVariable("player-id") String playerId) {
-        gameService.deal(new GameId(id), new PlayerId(playerId));
+    public HandDto listCards(@PathVariable("game-id") String id, @PathVariable("player-id") String playerId) {
+        Hand hand = gameService.getHand(new GameId(id), new PlayerId(playerId));
+
+        return HandAdapter.toDto(hand);
     }
 
 }

@@ -11,8 +11,8 @@ public class GameTable {
         players = new HashMap<>();
     }
 
-    public void addPlayer(Player player) {
-        players.put(player.getId(), new Hand());
+    public void addPlayer(PlayerId playerId) {
+        players.put(playerId, new Hand());
     }
 
     public void removePlayer(PlayerId playerId) {
@@ -22,5 +22,9 @@ public class GameTable {
     public void addCardToPlayerHand(PlayerId playerId, Card card) {
         players.get(playerId).addCard(card);
 
+    }
+
+    public Hand getPlayerHand(PlayerId playerId) {
+        return players.get(playerId);
     }
 }

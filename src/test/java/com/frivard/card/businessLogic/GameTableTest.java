@@ -6,23 +6,13 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameTest {
-
-    @Test
-    void givenNullId_whenCreatingInstance_thenThrowException() {
-        // Given
-        GameId id = null;
-
-        // Then
-        assertThrows(IllegalArgumentException.class, () -> new Game(id));
-    }
+class GameTableTest {
 
     @Test
     void givenAnyPlayerId_whenAddingPlayer_thenEmptyHandIsCreated() {
 
         // Given
-        GameId gameId = new GameId(UUID.randomUUID().toString());
-        Game systemUnderTest = new Game(gameId);
+        GameTable systemUnderTest = new GameTable();
         PlayerId playerId = new PlayerId(UUID.randomUUID().toString());
 
         // When
@@ -36,8 +26,7 @@ class GameTest {
     void givenInvalidPlayerId_whenListingPlayerHand_thenReturnNull() {
 
         // Given
-        GameId gameId = new GameId(UUID.randomUUID().toString());
-        Game systemUnderTest = new Game(gameId);
+        GameTable systemUnderTest = new GameTable();
         PlayerId playerId = new PlayerId(UUID.randomUUID().toString());
 
         // When
@@ -51,20 +40,19 @@ class GameTest {
     void givenPlayerWithAnyHand_whenListingPlayerHand_thenReturnHand() {
 
         // Given
-        GameId gameId = new GameId(UUID.randomUUID().toString());
-        Game systemUnderTest = new Game(gameId);
+        GameTable systemUnderTest = new GameTable();
 
         PlayerId playerId = new PlayerId(UUID.randomUUID().toString());
         systemUnderTest.addPlayer(playerId);
 
-        systemUnderTest.addDeck();
-
-        systemUnderTest.dealCardToPlayer(playerId);
+        Card anyCard = new Card(CardColor.CLUBS, CardStrength.FOUR);
+        systemUnderTest.addCardToPlayerHand(playerId, anyCard);
 
         // When
         Hand playerHand = systemUnderTest.getPlayerHand(playerId);
 
         // Then
+        assertEquals(anyCard, playerHand.getAllCards().get(0));
         assertEquals(1, playerHand.getAllCards().size());
     }
 

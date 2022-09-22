@@ -4,21 +4,21 @@ import com.frivard.card.dataAccessLayer.GamePersistence;
 
 import java.util.Optional;
 
-public class DealCard {
-    private final GamePersistence gamePersistence;
+public class GetHand {
+    private GamePersistence gamePersistence;
 
-    public DealCard(GamePersistence gamePersistence) {
+    public GetHand(GamePersistence gamePersistence) {
         this.gamePersistence = gamePersistence;
     }
 
-    public void dealToPlayer(GameId gameId, PlayerId playerId) {
+    public Hand getHandOfPlayer(GameId gameId, PlayerId playerId) {
+
         Game game = getGame(gameId);
 
-        if (game == null) return;
+        if (game == null) return null;
 
-        game.dealCardToPlayer(playerId);
+        return game.getPlayerHand(playerId);
 
-        saveGame(game);
     }
 
     private Game getGame(GameId gameId) {
@@ -26,9 +26,5 @@ public class DealCard {
 
         return gameOptional.orElse(null);
 
-    }
-
-    private void saveGame(Game game) {
-        gamePersistence.updateGame(game);
     }
 }

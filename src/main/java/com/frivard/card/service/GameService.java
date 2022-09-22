@@ -40,6 +40,10 @@ public class GameService {
     }
 
     public void deal(GameId gameId, PlayerId playerId) {
-        new DealCard(gamePersistence, playerPersistence).dealToPlayer(gameId, playerId);
+        new DealCard(gamePersistence).dealToPlayer(gameId, playerId);
+    }
+
+    public Hand getHand(GameId gameId, PlayerId playerId) {
+        return new GetHand(gamePersistence).getHandOfPlayer(gameId, playerId);
     }
 }
