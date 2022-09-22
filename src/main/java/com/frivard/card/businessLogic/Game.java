@@ -1,5 +1,6 @@
 package com.frivard.card.businessLogic;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class Game {
@@ -45,5 +46,22 @@ public class Game {
             return;
 
         table.addCardToPlayerHand(playerId, card.get());
+    }
+
+    public Hand getPlayerHand(PlayerId playerId) {
+        return table.getPlayerHand(playerId);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return Objects.equals(id, game.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

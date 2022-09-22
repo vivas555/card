@@ -1,5 +1,7 @@
 package com.frivard.card.businessLogic;
 
+import java.util.Objects;
+
 public class Player {
 
     private PlayerId id;
@@ -33,5 +35,18 @@ public class Player {
 
     public PlayerName getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return id.equals(player.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

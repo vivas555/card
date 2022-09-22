@@ -1,5 +1,7 @@
 package com.frivard.card.businessLogic;
 
+import java.util.Objects;
+
 public class GameId {
     private final String value;
 
@@ -28,4 +30,16 @@ public class GameId {
         return value;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameId gameId = (GameId) o;
+        return value.equals(gameId.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
+    }
 }
