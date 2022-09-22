@@ -1,5 +1,6 @@
 package com.frivard.card.service;
 
+import com.frivard.card.businessLogic.AddDeck;
 import com.frivard.card.businessLogic.CreateGame;
 import com.frivard.card.businessLogic.DeleteGame;
 import com.frivard.card.businessLogic.GameId;
@@ -23,5 +24,9 @@ public class GameService {
 
     public void deleteGameById(GameId gameId) {
         new DeleteGame(gamePersistence).byId(gameId);
+    }
+
+    public void addDeck(GameId gameId) {
+        new AddDeck(gamePersistence).addDeckToGame(gameId);
     }
 }

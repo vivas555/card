@@ -28,4 +28,9 @@ public class GameController {
         gameService.deleteGameById(new GameId(id));
     }
 
+    @PutMapping("/{id}/add-deck")
+    public void addDeck(@PathVariable("id") String id) {
+        gameService.addDeck(new GameId(id));
+    }
+
 }

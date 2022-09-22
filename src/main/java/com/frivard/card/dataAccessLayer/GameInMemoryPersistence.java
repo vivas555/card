@@ -21,7 +21,7 @@ public class GameInMemoryPersistence implements GamePersistence {
     @Override
     public GameId createGame() {
         GameId gameId = new GameId(UUID.randomUUID().toString());
-        games.put(gameId, new Game(gameId));
+        save(gameId, new Game(gameId));
 
         return gameId;
     }
@@ -34,5 +34,15 @@ public class GameInMemoryPersistence implements GamePersistence {
     @Override
     public void deleteGameById(GameId gameId) {
         games.remove(gameId);
+    }
+
+    @Override
+    public void saveGame(Game game) {
+        deleteGameById(game.getId());
+        save(game.getId(), game);
+    }
+
+    private void save(GameId gameId, Game game) {
+        games.put(gameId, game);
     }
 }
