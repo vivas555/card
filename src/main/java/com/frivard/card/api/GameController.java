@@ -1,5 +1,8 @@
 package com.frivard.card.api;
 
+import com.frivard.card.businessLogic.GameId;
+import com.frivard.card.service.GameService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,13 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("card-game/v0/game")
 public class GameController {
 
-    @PostMapping
-    public String createGame() {
-        return "Yo ça marche";
+    private GameService gameService;
+
+    @Autowired
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
     }
 
-    @PostMapping("/shuffle")
-    public String shuffleGame() {
-        return "Yo ça aussi";
+    @PostMapping
+    public String createGame() {
+        GameId id = gameService.createGame();
+
+        return id.getValue();
     }
+
 }
