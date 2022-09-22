@@ -24,18 +24,18 @@ public class GameController {
         return id.getValue();
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteGameById(@PathVariable("id") String id) {
+    @DeleteMapping("/{game-id}")
+    public void deleteGameById(@PathVariable("game-id") String id) {
         gameService.deleteGameById(new GameId(id));
     }
 
-    @PutMapping("/{id}/add-deck")
-    public void addDeck(@PathVariable("id") String id) {
+    @PutMapping("/{game-id}/add-deck")
+    public void addDeck(@PathVariable("game-id") String id) {
         gameService.addDeck(new GameId(id));
     }
 
-    @PutMapping("/{id}/add-player/{player-name}")
-    public void addPlayer(@PathVariable("id") String id, @PathVariable("player-name") String playerName) {
+    @PutMapping("/{game-id}/add-player/{player-name}")
+    public void addPlayer(@PathVariable("game-id") String id, @PathVariable("player-name") String playerName) {
         gameService.addPlayer(new GameId(id), new PlayerName(playerName));
     }
 
