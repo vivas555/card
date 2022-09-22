@@ -24,4 +24,8 @@ public class Game {
     public GameId getId() {
         return id;
     }
+
+    public void addPlayer(Player player) {
+
+    }
 }

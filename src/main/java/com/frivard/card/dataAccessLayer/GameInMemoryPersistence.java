@@ -20,10 +20,14 @@ public class GameInMemoryPersistence implements GamePersistence {
 
     @Override
     public GameId createGame() {
-        GameId gameId = new GameId(UUID.randomUUID().toString());
+        GameId gameId = generateId();
         save(gameId, new Game(gameId));
 
         return gameId;
+    }
+
+    private static GameId generateId() {
+        return new GameId(UUID.randomUUID().toString());
     }
 
     @Override

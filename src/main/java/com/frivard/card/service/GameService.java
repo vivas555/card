@@ -1,21 +1,22 @@
 package com.frivard.card.service;
 
-import com.frivard.card.businessLogic.AddDeck;
-import com.frivard.card.businessLogic.CreateGame;
-import com.frivard.card.businessLogic.DeleteGame;
-import com.frivard.card.businessLogic.GameId;
+import com.frivard.card.businessLogic.*;
 import com.frivard.card.dataAccessLayer.GamePersistence;
+import com.frivard.card.dataAccessLayer.PlayerPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+//TODO Separate Injection from assembling concerns.
 public class GameService {
 
     private GamePersistence gamePersistence;
+    private PlayerPersistence playerPersistence;
 
     @Autowired
-    public GameService(GamePersistence gamePersistence) {
+    public GameService(GamePersistence gamePersistence, PlayerPersistence playerPersistence) {
         this.gamePersistence = gamePersistence;
+        this.playerPersistence = playerPersistence;
     }
 
     public GameId createGame() {
@@ -28,5 +29,9 @@ public class GameService {
 
     public void addDeck(GameId gameId) {
         new AddDeck(gamePersistence).addDeckToGame(gameId);
+    }
+
+    public void addPlayer(GameId gameId, PlayerName playerName) {
+        new AddPlayer(gamePersistence, playerPersistence).add(gameId, playerName);
     }
 }
