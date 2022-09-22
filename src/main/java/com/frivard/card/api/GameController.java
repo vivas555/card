@@ -40,9 +40,14 @@ public class GameController {
         gameService.addPlayer(new GameId(id), new PlayerName(playerName));
     }
 
-    @PutMapping("/{game-id}/player/{player-id}/remove")
+    @PutMapping("/{game-id}/players/{player-id}/remove")
     public void removePlayer(@PathVariable("game-id") String id, @PathVariable("player-id") String playerId) {
         gameService.removePlayer(new GameId(id), new PlayerId(playerId));
+    }
+
+    @PutMapping("/{game-id}/players/{player-id}/deal")
+    public void deal(@PathVariable("game-id") String id, @PathVariable("player-id") String playerId) {
+        gameService.deal(new GameId(id), new PlayerId(playerId));
     }
 
 }

@@ -11,7 +11,7 @@ public class RemovePlayer {
         this.persistence = persistence;
     }
 
-    public void remove(GameId gameId, PlayerId playerId) {
+    public void removeFromGame(GameId gameId, PlayerId playerId) {
         Game game = removePlayerFromGame(gameId, playerId);
         if (game == null)
             return;

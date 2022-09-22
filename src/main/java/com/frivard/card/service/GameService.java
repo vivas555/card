@@ -32,10 +32,14 @@ public class GameService {
     }
 
     public void addPlayer(GameId gameId, PlayerName playerName) {
-        new AddPlayer(gamePersistence, playerPersistence).add(gameId, playerName);
+        new AddPlayer(gamePersistence, playerPersistence).addToGame(gameId, playerName);
     }
 
     public void removePlayer(GameId gameId, PlayerId playerId) {
-        new RemovePlayer(gamePersistence).remove(gameId, playerId);
+        new RemovePlayer(gamePersistence).removeFromGame(gameId, playerId);
+    }
+
+    public void deal(GameId gameId, PlayerId playerId) {
+        new DealCard(gamePersistence, playerPersistence).dealToPlayer(gameId, playerId);
     }
 }

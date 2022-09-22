@@ -14,7 +14,7 @@ public class AddPlayer {
         this.playerPersistence = playerPersistence;
     }
 
-    public void add(GameId gameId, PlayerName playerName) {
+    public void addToGame(GameId gameId, PlayerName playerName) {
         Player player = createPlayer(playerName);
 
         Game game = addPlayerToGame(gameId, player);
