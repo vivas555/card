@@ -37,7 +37,7 @@ public class GameInMemoryPersistence implements GamePersistence {
     }
 
     @Override
-    public void saveGame(Game game) {
+    public void updateGame(Game game) {
         deleteGameById(game.getId());
         save(game.getId(), game);
     }

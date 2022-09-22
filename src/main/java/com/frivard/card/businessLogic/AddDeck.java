@@ -22,7 +22,7 @@ public class AddDeck {
     }
 
     private void saveGame(Game game) {
-        gamePersistence.saveGame(game);
+        gamePersistence.updateGame(game);
     }
 
     private static void addDeck(Game game) {

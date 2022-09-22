@@ -12,5 +12,5 @@ public interface GamePersistence {
 
     void deleteGameById(GameId gameId);
 
-    void saveGame(Game game);
+    void updateGame(Game game);
 }

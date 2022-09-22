@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class GameInMemoryPersistenceTest {
 
     @Test
-    void givenAnyGame_whenCreatingGame_ThenReturnGameId() {
+    void givenAnyGame_whenCreatingGame_thenReturnGameId() {
 
         // Given
         GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
@@ -26,7 +26,7 @@ class GameInMemoryPersistenceTest {
     }
 
     @Test
-    void givenAnyGame_whenCreatingGame_ThenGameIsSaved() {
+    void givenAnyGame_whenCreatingGame_thenGameIsSaved() {
 
         // Given
         GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
@@ -53,7 +53,7 @@ class GameInMemoryPersistenceTest {
     }
 
     @Test
-    void givenAnyGame_whenDeletingGame_ThenDeleteGame() {
+    void givenAnyGame_whenDeletingGame_thenDeleteGame() {
 
         // Given
         GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
@@ -68,7 +68,7 @@ class GameInMemoryPersistenceTest {
     }
 
     @Test
-    void givenNoGame_whenDeletingGame_ThenDoNothing() {
+    void givenNoGame_whenDeletingGame_thenDoNothing() {
 
         // Given
         GameInMemoryPersistence systemUnderTest = new GameInMemoryPersistence();
@@ -79,4 +79,6 @@ class GameInMemoryPersistenceTest {
 
         // Then
     }
+
+    //TODO test update quand game was avoir des propriétés
 }
