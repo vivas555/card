@@ -1,5 +1,9 @@
 package com.frivard.card.businessLogic;
 
+import com.frivard.card.businessLogic.model.Card;
+import com.frivard.card.businessLogic.model.CardColor;
+import com.frivard.card.businessLogic.model.CardStrength;
+import com.frivard.card.businessLogic.model.Hand;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

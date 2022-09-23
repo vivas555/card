@@ -1,5 +1,8 @@
 package com.frivard.card.businessLogic;
 
+import com.frivard.card.businessLogic.model.Player;
+import com.frivard.card.businessLogic.model.PlayerId;
+import com.frivard.card.businessLogic.model.PlayerName;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;

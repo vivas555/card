@@ -1,6 +1,6 @@
 package com.frivard.card.api;
 
-import com.frivard.card.businessLogic.*;
+import com.frivard.card.businessLogic.model.*;
 import com.frivard.card.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

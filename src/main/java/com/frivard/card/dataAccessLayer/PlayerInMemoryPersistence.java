@@ -1,8 +1,8 @@
 package com.frivard.card.dataAccessLayer;
 
-import com.frivard.card.businessLogic.Player;
-import com.frivard.card.businessLogic.PlayerId;
-import com.frivard.card.businessLogic.PlayerName;
+import com.frivard.card.businessLogic.model.Player;
+import com.frivard.card.businessLogic.model.PlayerId;
+import com.frivard.card.businessLogic.model.PlayerName;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;

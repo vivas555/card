@@ -1,4 +1,4 @@
-package com.frivard.card.businessLogic;
+package com.frivard.card.businessLogic.model;
 
 public class PlayerHand {
     private Player player;

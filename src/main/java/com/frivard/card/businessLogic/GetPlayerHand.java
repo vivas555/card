@@ -1,5 +1,6 @@
 package com.frivard.card.businessLogic;
 
+import com.frivard.card.businessLogic.model.*;
 import com.frivard.card.dataAccessLayer.GamePersistence;
 import com.frivard.card.dataAccessLayer.PlayerPersistence;
 

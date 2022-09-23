@@ -1,5 +1,7 @@
 package com.frivard.card.businessLogic;
 
+import com.frivard.card.businessLogic.model.Card;
+import com.frivard.card.businessLogic.model.Shoe;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

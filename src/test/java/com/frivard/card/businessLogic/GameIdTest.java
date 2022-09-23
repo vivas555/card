@@ -1,5 +1,6 @@
 package com.frivard.card.businessLogic;
 
+import com.frivard.card.businessLogic.model.GameId;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;

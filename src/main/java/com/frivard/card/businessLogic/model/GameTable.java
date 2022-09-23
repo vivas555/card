@@ -1,4 +1,4 @@
-package com.frivard.card.businessLogic;
+package com.frivard.card.businessLogic.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

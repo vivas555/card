@@ -1,12 +1,13 @@
-package com.frivard.card.businessLogic;
+package com.frivard.card.businessLogic.model;
 
 import java.util.Objects;
 
-public class PlayerName {
-    private String value;
+public class GameId {
+    private final String value;
 
-    public PlayerName(String playerName) {
-        value = playerName;
+    public GameId(String value) {
+        this.value = value;
+
         validateInstance();
     }
 
@@ -33,8 +34,8 @@ public class PlayerName {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PlayerName name = (PlayerName) o;
-        return Objects.equals(value, name.value);
+        GameId gameId = (GameId) o;
+        return value.equals(gameId.value);
     }
 
     @Override

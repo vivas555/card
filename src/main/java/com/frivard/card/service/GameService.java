@@ -1,6 +1,7 @@
 package com.frivard.card.service;
 
 import com.frivard.card.businessLogic.*;
+import com.frivard.card.businessLogic.model.*;
 import com.frivard.card.dataAccessLayer.GamePersistence;
 import com.frivard.card.dataAccessLayer.PlayerPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,6 @@ public class GameService {
     }
 
     public void shuffleShoe(GameId gameId) {
-        new ShuffleShow(gamePersistence).shuffle(gameId);
+        new ShuffleShoe(gamePersistence).shuffle(gameId);
     }
 }

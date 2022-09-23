@@ -1,7 +1,7 @@
 package com.frivard.card.dataAccessLayer;
 
-import com.frivard.card.businessLogic.Game;
-import com.frivard.card.businessLogic.GameId;
+import com.frivard.card.businessLogic.model.Game;
+import com.frivard.card.businessLogic.model.GameId;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

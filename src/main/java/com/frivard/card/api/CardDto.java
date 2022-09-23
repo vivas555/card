@@ -1,8 +1,8 @@
 package com.frivard.card.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.frivard.card.businessLogic.CardColor;
-import com.frivard.card.businessLogic.CardStrength;
+import com.frivard.card.businessLogic.model.CardColor;
+import com.frivard.card.businessLogic.model.CardStrength;
 
 public class CardDto {
     private final CardColor color;

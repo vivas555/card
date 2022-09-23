@@ -1,6 +1,6 @@
 package com.frivard.card.api;
 
-import com.frivard.card.businessLogic.PlayerHand;
+import com.frivard.card.businessLogic.model.PlayerHand;
 
 import java.util.ArrayList;
 import java.util.List;

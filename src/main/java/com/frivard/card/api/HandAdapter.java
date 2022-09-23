@@ -1,7 +1,7 @@
 package com.frivard.card.api;
 
-import com.frivard.card.businessLogic.Card;
-import com.frivard.card.businessLogic.Hand;
+import com.frivard.card.businessLogic.model.Card;
+import com.frivard.card.businessLogic.model.Hand;
 
 import java.util.ArrayList;
 import java.util.List;

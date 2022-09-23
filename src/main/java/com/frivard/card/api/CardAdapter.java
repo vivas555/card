@@ -1,13 +1,13 @@
 package com.frivard.card.api;
 
-import com.frivard.card.businessLogic.Card;
+import com.frivard.card.businessLogic.model.Card;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static com.frivard.card.businessLogic.CardColor.*;
+import static com.frivard.card.businessLogic.model.CardColor.*;
 
 public class CardAdapter {
     public static List<CardsCountDto> toCardsCountDtoList(List<Card> cards) {

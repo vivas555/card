@@ -1,7 +1,7 @@
 package com.frivard.card.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.frivard.card.businessLogic.CardColor;
+import com.frivard.card.businessLogic.model.CardColor;
 
 public class CardsCountDto {
     private final int number;

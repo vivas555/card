@@ -1,5 +1,6 @@
 package com.frivard.card.businessLogic;
 
+import com.frivard.card.businessLogic.model.GameId;
 import com.frivard.card.dataAccessLayer.GamePersistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
