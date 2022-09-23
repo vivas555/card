@@ -86,4 +86,31 @@ class GameTest {
         assertEquals(playerId, result.get(0));
     }
 
+    @Test
+    void givenEmptyShoe_whenGettingAllCard_thenReturnEmptyList() {
+        // Given
+        GameId gameId = new GameId(UUID.randomUUID().toString());
+        Game systemUnderTest = new Game(gameId);
+
+        // When
+        List<Card> result = systemUnderTest.listCardsStillInShoe();
+
+        // Then
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void givenNotEmptyShoe_whenGettingAllCard_thenReturnAllCards() {
+        // Given
+        GameId gameId = new GameId(UUID.randomUUID().toString());
+        Game systemUnderTest = new Game(gameId);
+        systemUnderTest.addDeck();
+
+        // When
+        List<Card> result = systemUnderTest.listCardsStillInShoe();
+
+        // Then
+        assertEquals(52, result.size());
+    }
+
 }

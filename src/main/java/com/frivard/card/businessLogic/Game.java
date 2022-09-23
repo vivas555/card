@@ -59,6 +59,10 @@ public class Game {
         return table.getPlayerHand(playerId);
     }
 
+    public List<Card> listCardsStillInShoe() {
+        return shoe.getAllCard();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -71,4 +75,6 @@ public class Game {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
 }

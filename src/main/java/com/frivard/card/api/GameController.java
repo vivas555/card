@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("card-game/v0/games")
 public class GameController {
 
-    private GameService gameService;
+    private final GameService gameService;
 
     @Autowired
     public GameController(GameService gameService) {
@@ -26,13 +26,13 @@ public class GameController {
     }
 
     @DeleteMapping("/{game-id}")
-    public void deleteGameById(@PathVariable("game-id") String id) {
-        gameService.deleteGameById(new GameId(id));
+    public void deleteGameById(@PathVariable("game-id") String gameId) {
+        gameService.deleteGameById(new GameId(gameId));
     }
 
     @PutMapping("/{game-id}/add-deck")
-    public void addDeck(@PathVariable("game-id") String id) {
-        gameService.addDeck(new GameId(id));
+    public void addDeck(@PathVariable("game-id") String gameId) {
+        gameService.addDeck(new GameId(gameId));
     }
 
     @PutMapping("/{game-id}/add-player/{player-name}")
@@ -60,10 +60,17 @@ public class GameController {
     }
 
     @GetMapping("/{game-id}/players")
-    public List<PlayerHandDto> listPlayersWithHandStrength(@PathVariable("game-id") String id) {
-        List<PlayerHand> playerHands = gameService.listPlayersWithHandStrength(new GameId(id));
+    public List<PlayerHandDto> listPlayersWithHandStrength(@PathVariable("game-id") String gameId) {
+        List<PlayerHand> playerHands = gameService.listPlayersWithHandStrength(new GameId(gameId));
 
         return PlayerHandAdapter.toDtos(playerHands);
     }
 
+    @GetMapping("/{game-id}/undealt-cards")
+    public List<CardsCountDto> getUndealtCards(@PathVariable("game-id") String gameId) {
+        List<Card> undealtCards = gameService.listCardsStillInShoe(new GameId(gameId));
+
+
+        return CardAdapter.toCardsCountDtoList(undealtCards);
+    }
 }

@@ -52,4 +52,8 @@ public class GameService {
     public List<PlayerHand> listPlayersWithHandStrength(GameId gameId) {
         return new GetPlayerHand(gamePersistence, playerPersistence).getHandWithHandStrength(gameId);
     }
+
+    public List<Card> listCardsStillInShoe(GameId gameId) {
+        return new ListCard(gamePersistence).listCardsStillInShoe(gameId);
+    }
 }

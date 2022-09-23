@@ -2,10 +2,10 @@ package com.frivard.card.businessLogic;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ShoeTest {
 
@@ -32,5 +32,31 @@ class ShoeTest {
 
         // Then
         assertTrue(result.isPresent());
+    }
+
+
+    @Test
+    void givenEmptyShoe_whenGettingAllCard_thenReturnEmptyList() {
+        // Given
+        Shoe systemUnderTest = new Shoe();
+
+        // When
+        List<Card> result = systemUnderTest.getAllCard();
+
+        // Then
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void givenNotEmptyShoe_whenGettingAllCard_thenReturnAllCards() {
+        // Given
+        Shoe systemUnderTest = new Shoe();
+        systemUnderTest.addDeck();
+
+        // When
+        List<Card> result = systemUnderTest.getAllCard();
+
+        // Then
+        assertEquals(52, result.size());
     }
 }

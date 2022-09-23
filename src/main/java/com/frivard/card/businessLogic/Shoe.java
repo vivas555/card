@@ -25,4 +25,8 @@ public class Shoe {
 
         return Optional.ofNullable(cards.remove(0));
     }
+
+    public List<Card> getAllCard() {
+        return cards;
+    }
 }
