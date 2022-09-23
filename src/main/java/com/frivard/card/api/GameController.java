@@ -66,11 +66,18 @@ public class GameController {
         return PlayerHandAdapter.toDtos(playerHands);
     }
 
-    @GetMapping("/{game-id}/undealt-cards")
-    public List<CardsCountDto> getUndealtCards(@PathVariable("game-id") String gameId) {
+    @GetMapping("/{game-id}/undealt-cards-count")
+    public List<CardsCountDto> getUndealtCardsCount(@PathVariable("game-id") String gameId) {
         List<Card> undealtCards = gameService.listCardsStillInShoe(new GameId(gameId));
-
 
         return CardAdapter.toCardsCountDtoList(undealtCards);
     }
+
+    @GetMapping("/{game-id}/undealt-cards")
+    public List<CardDto> getUndealtCards(@PathVariable("game-id") String gameId) {
+        List<Card> undealtCards = gameService.listCardsStillInShoe(new GameId(gameId));
+
+        return CardAdapter.toCardsDtosSortedBySuitAndValue(undealtCards);
+    }
+
 }
