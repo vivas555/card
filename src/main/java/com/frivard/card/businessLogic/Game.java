@@ -63,6 +63,10 @@ public class Game {
         return shoe.getAllCard();
     }
 
+    public void shuffleShoe() {
+        shoe.shuffle();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,6 +79,5 @@ public class Game {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 
 }

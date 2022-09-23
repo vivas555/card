@@ -80,4 +80,8 @@ public class GameController {
         return CardAdapter.toCardsDtosSortedBySuitAndValue(undealtCards);
     }
 
+    @PutMapping("/{game-id}/shuffle")
+    public void shuffleShoe(@PathVariable("game-id") String gameId) {
+        gameService.shuffleShoe(new GameId(gameId));
+    }
 }

@@ -59,4 +59,32 @@ class ShoeTest {
         // Then
         assertEquals(52, result.size());
     }
+
+    @Test
+    void givenAnyShoe_whenShufflingCards_thenReorganizeCards() {
+        // Given
+        Shoe systemUnderTest = new Shoe();
+        systemUnderTest.addDeck();
+        List<Card> before = systemUnderTest.getAllCard();
+
+        // When
+        systemUnderTest.shuffle();
+
+        // Then
+        List<Card> after = systemUnderTest.getAllCard();
+        assertEquals(before.size(), after.size());
+        assertBothListAreNotInTheSameOrder(before, after);
+
+    }
+
+    private void assertBothListAreNotInTheSameOrder(List<Card> before, List<Card> after) {
+        boolean different = false;
+        for (int i = 0; i < before.size(); i++) {
+            if (!before.get(i).equals(after.get(i))) {
+                different = true;
+                break;
+            }
+        }
+        assertTrue(different);
+    }
 }

@@ -56,4 +56,8 @@ public class GameService {
     public List<Card> listCardsStillInShoe(GameId gameId) {
         return new ListCard(gamePersistence).listCardsStillInShoe(gameId);
     }
+
+    public void shuffleShoe(GameId gameId) {
+        new ShuffleShow(gamePersistence).shuffle(gameId);
+    }
 }
