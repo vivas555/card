@@ -2,6 +2,7 @@ package com.frivard.card.businessLogic;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -66,6 +67,23 @@ class GameTest {
 
         // Then
         assertEquals(1, playerHand.getAllCards().size());
+    }
+
+    @Test
+    void givenAnyGameWithPlayer_whenListingPlayer_thenListPlayers() {
+
+        // Given
+        GameId gameId = new GameId(UUID.randomUUID().toString());
+        Game systemUnderTest = new Game(gameId);
+        PlayerId playerId = new PlayerId(UUID.randomUUID().toString());
+        systemUnderTest.addPlayer(playerId);
+
+        // When
+        List<PlayerId> result = systemUnderTest.listPlayers();
+
+        // Then
+        assertEquals(1, result.size());
+        assertEquals(playerId, result.get(0));
     }
 
 }

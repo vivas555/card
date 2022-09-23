@@ -18,4 +18,14 @@ public class Hand {
     public List<Card> getAllCards() {
         return Collections.unmodifiableList(cards);
     }
+
+    public int getStrength() {
+        int totalStrength = 0;
+
+        for (Card card : cards) {
+            totalStrength += card.getStrength().getValue();
+        }
+
+        return totalStrength;
+    }
 }

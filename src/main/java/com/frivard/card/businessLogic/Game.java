@@ -1,5 +1,6 @@
 package com.frivard.card.businessLogic;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -48,6 +49,10 @@ public class Game {
             return;
 
         table.addCardToPlayerHand(playerId, card.get());
+    }
+
+    public List<PlayerId> listPlayers() {
+        return table.getAllPlayer();
     }
 
     public Hand getPlayerHand(PlayerId playerId) {

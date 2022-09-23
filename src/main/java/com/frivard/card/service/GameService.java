@@ -6,6 +6,8 @@ import com.frivard.card.dataAccessLayer.PlayerPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 //TODO Separate Injection from assembling concerns.
 public class GameService {
@@ -45,5 +47,9 @@ public class GameService {
 
     public Hand getHand(GameId gameId, PlayerId playerId) {
         return new GetHand(gamePersistence).getHandOfPlayer(gameId, playerId);
+    }
+
+    public List<PlayerHand> listPlayersWithHandStrength(GameId gameId) {
+        return new GetPlayerHand(gamePersistence, playerPersistence).getHandWithHandStrength(gameId);
     }
 }

@@ -1,12 +1,11 @@
 package com.frivard.card.api;
 
-import com.frivard.card.businessLogic.GameId;
-import com.frivard.card.businessLogic.Hand;
-import com.frivard.card.businessLogic.PlayerId;
-import com.frivard.card.businessLogic.PlayerName;
+import com.frivard.card.businessLogic.*;
 import com.frivard.card.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("card-game/v0/games")
@@ -58,6 +57,13 @@ public class GameController {
         Hand hand = gameService.getHand(new GameId(id), new PlayerId(playerId));
 
         return HandAdapter.toDto(hand);
+    }
+
+    @GetMapping("/{game-id}/players")
+    public List<PlayerHandDto> listPlayersWithHandStrength(@PathVariable("game-id") String id) {
+        List<PlayerHand> playerHands = gameService.listPlayersWithHandStrength(new GameId(id));
+
+        return PlayerHandAdapter.toDtos(playerHands);
     }
 
 }
